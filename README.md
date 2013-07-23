@@ -45,7 +45,7 @@ greater. Vagrant will run on Windows, OS X and Linux.
 ## Contribute ##
 
 ### Requirements ###
-* PHP 5.4
+* PHP 5.5
 * For executing all the tests [puppet-lint](http://packages.ubuntu.com/precise/puppet-lint) has to be installed on your machine
 * some [Silex](http://silex.sensiolabs.org/ "Silex") knowledge
 
