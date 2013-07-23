@@ -111,7 +111,7 @@ editions:
         - 'curl'
         - 'zip'
     php:
-      version: php54
+      version: php55
       modules:
         composer:
           installed: true
