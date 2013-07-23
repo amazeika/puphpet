@@ -4,6 +4,8 @@ namespace Puphpet\Tests\Domain\PuppetModule;
 
 use Puphpet\Domain\Compiler\Compiler;
 
+use Symfony\Component\EventDispatcher;
+
 class CompilerTest extends \PHPUnit_Framework_TestCase
 {
     public function testCompile()
@@ -14,7 +16,7 @@ class CompilerTest extends \PHPUnit_Framework_TestCase
         $additionalContent = 'foo bar';
         $compilationContent = "hello world\nfoo bar";
 
-        $twig = $this->getMockBuilder('\Twig_Environment')
+        $twig = $this->getMockBuilder(\Twig_Environment::class)
             ->disableOriginalConstructor()
             ->setMethods(['render'])
             ->getMock();
@@ -44,7 +46,7 @@ class CompilerTest extends \PHPUnit_Framework_TestCase
 
     private function buildEventDispatcher()
     {
-        return $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcherInterface')
+        return $this->getMockBuilder(EventDispatcher\EventDispatcherInterface::class)
             ->setMethods(
                 [
                     'dispatch',

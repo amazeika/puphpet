@@ -3,6 +3,7 @@
 namespace Puphpet\Tests\Domain\PuppetModule;
 
 use Puphpet\Domain\Compiler\Manifest\ConfigurationFormatter;
+use Puphpet\Domain;
 
 class ConfigurationFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +22,7 @@ class ConfigurationFormatterTest extends \PHPUnit_Framework_TestCase
     public function testFormat($requestedWebserver, $validatedWebserver, $webserverConfiguration)
     {
         // mocking the request
-        $configuration = $this->getMockBuilder('\Puphpet\Domain\Configuration\Configuration')
+        $configuration = $this->getMockBuilder(Domain\Configuration\Configuration::class)
           ->disableOriginalConstructor()
           ->setMethods(['get'])
           ->getMock();
@@ -99,7 +100,7 @@ class ConfigurationFormatterTest extends \PHPUnit_Framework_TestCase
 
     private function getManifestFormatterMock()
     {
-        return $this->getMockBuilder('\Puphpet\Domain\Compiler\Manifest\Formatter')
+        return $this->getMockBuilder(Domain\Compiler\Manifest\Formatter::class)
           ->disableOriginalConstructor()
           ->setMethods(
               [

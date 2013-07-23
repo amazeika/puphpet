@@ -3,6 +3,8 @@
 namespace Puphpet\Tests\Domain\Configuration\File;
 
 use Puphpet\Domain\Configurator\File\ConfiguratorHandler;
+use Puphpet\Domain;
+use Symfony\Component\EventDispatcher;
 
 class ConfiguratorHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,7 +15,7 @@ class ConfiguratorHandlerTest extends \PHPUnit_Framework_TestCase
             'hello' => 'world'
         ];
 
-        $domainFile = $this->getMockBuilder('Puphpet\Domain\File')
+        $domainFile = $this->getMockBuilder(Domain\File::class)
             ->disableOriginalConstructor()
             ->setMethods(array())
             ->getMock();
@@ -29,7 +31,7 @@ class ConfiguratorHandlerTest extends \PHPUnit_Framework_TestCase
 
     private function buildEventDispatcher()
     {
-        return $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcherInterface')
+        return $this->getMockBuilder(EventDispatcher\EventDispatcherInterface::class)
             ->setMethods(
                 [
                     'dispatch',

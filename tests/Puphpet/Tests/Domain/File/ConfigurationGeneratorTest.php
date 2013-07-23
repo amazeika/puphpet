@@ -2,8 +2,9 @@
 
 namespace Puphpet\Tests\Domain\File;
 
-use Puphpet\Domain\File\ConfigurationGenerator;
-use Puphpet\Domain\File\RequestGenerator;
+use Puphpet\Domain\File;
+use Puphpet\Domain;
+use Puphpet\Domain\Compiler\Manifest;
 
 class ConfigurationGeneratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,7 +42,7 @@ class ConfigurationGeneratorTest extends \PHPUnit_Framework_TestCase
         ];
 
         // mocking the request
-        $configuration = $this->getMockBuilder('\Puphpet\Domain\Configuration\Configuration')
+        $configuration = $this->getMockBuilder(Domain\Configuration\Configuration::class)
             ->disableOriginalConstructor()
             ->setMethods(['get', 'toArray'])
             ->getMock();
@@ -62,9 +63,7 @@ class ConfigurationGeneratorTest extends \PHPUnit_Framework_TestCase
             ->method('toArray')
             ->will($this->returnValue($expectedUserConfiguration));
 
-        $requestFormatter = $this->getMockBuilder(
-            'Puphpet\Domain\Compiler\Manifest\ConfigurationFormatter'
-        )
+        $requestFormatter = $this->getMockBuilder(Manifest\ConfigurationFormatter::class)
             ->disableOriginalConstructor()
             ->setMethods(['bindConfiguration', 'format'])
             ->getMock();
@@ -77,7 +76,7 @@ class ConfigurationGeneratorTest extends \PHPUnit_Framework_TestCase
             ->method('format')
             ->will($this->returnValue($manifestConfiguration));
 
-        $generator = $this->getMockBuilder('Puphpet\Domain\File\Generator')
+        $generator = $this->getMockBuilder(File\Generator::class)
             ->disableOriginalConstructor()
             ->setMethods(['generateArchive'])
             ->getMock();
@@ -86,7 +85,7 @@ class ConfigurationGeneratorTest extends \PHPUnit_Framework_TestCase
             ->method('generateArchive')
             ->with($boxConfiguration, $manifestConfiguration, $vagrantConfiguration, $expectedUserConfiguration);
 
-        $requestGenerator = new ConfigurationGenerator($generator, $requestFormatter);
+        $requestGenerator = new File\ConfigurationGenerator($generator, $requestFormatter);
         $requestGenerator->generateArchive($configuration);
     }
 }

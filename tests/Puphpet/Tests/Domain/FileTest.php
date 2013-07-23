@@ -2,7 +2,7 @@
 
 namespace Puphpet\Tests\Domain;
 
-use Puphpet\Domain\File;
+use Puphpet\Domain;
 
 class FileTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,7 +30,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
      */
     protected function getFilesystemMock($cleanUpOffset = 3)
     {
-        $mock = $this->getMockBuilder('\Puphpet\Domain\Filesystem')
+        $mock = $this->getMockBuilder(Domain\Filesystem::class)
             ->disableOriginalConstructor()
             ->setMethods(
                 [
@@ -79,7 +79,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
         $replacementFiles = array();
 
-        $file = new File($filesystem);
+        $file = new Domain\File($filesystem);
         $file->setName($this->filename);
         $file->createArchive($replacementFiles);
         $createdFile = $file->getArchiveFile();
@@ -120,7 +120,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
             ->method('putContents')
             ->with($this->archivePath . '/replacement3', 'bambam');
 
-        $file = new File($filesystem);
+        $file = new Domain\File($filesystem);
         $file->setName($this->filename);
         $file->createArchive($replacementFiles);
         $createdFile = $file->getArchiveFile();
@@ -166,7 +166,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
             ->method('clearTmpDirectory')
             ->with($this->archivePathParent);
 
-        $file = new File($filesystem);
+        $file = new Domain\File($filesystem);
         $file->setName($this->filename);
         $file->addModuleSource($moduleName1, $moduleSource1);
         $file->addModuleSource($moduleName2, $moduleSource2);
@@ -208,7 +208,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
             ->method('clearTmpDirectory')
             ->with($this->archivePathParent);
 
-        $file = new File($filesystem);
+        $file = new Domain\File($filesystem);
         $file->setName($this->filename);
         $file->addModuleSource($moduleName, $moduleSource);
         $file->addModuleSource($moduleName, $moduleSource2);

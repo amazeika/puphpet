@@ -3,13 +3,15 @@
 namespace Puphpet\Tests\Domain\Compiler\Event\Listener;
 
 use Puphpet\Domain\Configurator\File\Event\Listener\ConfiguratorListener;
+use Puphpet\Domain\Configurator\File;
+use Puphpet\Domain;
 
 class ConfiguratorListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testConfigureIsNotCalledWhenUnsupportedConfigurationIsGiven()
     {
         $configuration = ['foo' => 'bar'];
-        $configurator = $this->getMockForAbstractClass('Puphpet\Domain\Configurator\File\ConfiguratorInterface');
+        $configurator = $this->getMockForAbstractClass(File\ConfiguratorInterface::class);
         $configurator->expects($this->once())
             ->method('supports')
             ->with($configuration)
@@ -17,7 +19,7 @@ class ConfiguratorListenerTest extends \PHPUnit_Framework_TestCase
         $configurator->expects($this->never())
             ->method('configure');
 
-        $event = $this->getMockBuilder('Puphpet\Domain\Configurator\File\Event\ConfiguratorEvent')
+        $event = $this->getMockBuilder(File\Event\ConfiguratorEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(['getConfiguration'])
             ->getMock();
@@ -34,12 +36,12 @@ class ConfiguratorListenerTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = ['foo' => 'bar'];
 
-        $domainFile = $this->getMockBuilder('Puphpet\Domain\File')
+        $domainFile = $this->getMockBuilder(Domain\File::class)
             ->disableOriginalConstructor()
             ->setMethods(array())
             ->getMock();
 
-        $event = $this->getMockBuilder('Puphpet\Domain\Configurator\File\Event\ConfiguratorEvent')
+        $event = $this->getMockBuilder(File\Event\ConfiguratorEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(['getConfiguration', 'getDomainFile'])
             ->getMock();
@@ -52,7 +54,7 @@ class ConfiguratorListenerTest extends \PHPUnit_Framework_TestCase
             ->method('getDomainFile')
             ->will($this->returnValue($domainFile));
 
-        $configurator = $this->getMockForAbstractClass('Puphpet\Domain\Configurator\File\ConfiguratorInterface');
+        $configurator = $this->getMockForAbstractClass(File\ConfiguratorInterface::class);
         $configurator->expects($this->once())
             ->method('supports')
             ->with($configuration)

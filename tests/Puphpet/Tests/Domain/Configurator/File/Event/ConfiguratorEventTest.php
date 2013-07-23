@@ -3,12 +3,13 @@
 namespace Puphpet\Tests\Domain\Configuration\File;
 
 use Puphpet\Domain\Configurator\File\Event\ConfiguratorEvent;
+use Puphpet\Domain;
 
 class ConfiguratorEventTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetSet()
     {
-        $domainFile = $this->getMockBuilder('Puphpet\Domain\File')
+        $domainFile = $this->getMockBuilder(Domain\File::class)
             ->disableOriginalConstructor()
             ->setMethods(array('addModuleSource'))
             ->getMock();

@@ -3,6 +3,7 @@
 namespace Puphpet\Tests\Domain\PuppetModule;
 
 use Puphpet\Domain\Compiler\AdditionalContentManipulator;
+use Puphpet\Domain;
 
 class AdditionalContentManipulatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -64,12 +65,12 @@ class AdditionalContentManipulatorTest extends \PHPUnit_Framework_TestCase
 
     private function buildDecider()
     {
-        return $this->getMockForAbstractClass('Puphpet\Domain\Decider\DeciderInterface');
+        return $this->getMockForAbstractClass(Domain\Decider\DeciderInterface::class);
     }
 
     private function buildCompilation($configuration)
     {
-        $compilation = $this->getMockBuilder('Puphpet\Domain\Compiler\Compilation')
+        $compilation = $this->getMockBuilder(Domain\Compiler\Compilation::class)
             ->disableOriginalConstructor()
             ->setMethods(['getConfiguration', 'addContent'])
             ->getMock();
@@ -84,7 +85,7 @@ class AdditionalContentManipulatorTest extends \PHPUnit_Framework_TestCase
 
     private function buildTwig()
     {
-        return $this->getMockBuilder('\Twig_Environment')
+        return $this->getMockBuilder(\Twig_Environment::class)
             ->disableOriginalConstructor()
             ->setMethods(['render'])
             ->getMock();

@@ -3,6 +3,8 @@
 namespace Puphpet\Tests\Domain;
 
 use Puphpet\Plugins\Symfony\Compiler\SymfonyCreateProjectDecider;
+use Puphpet\Domain\Configuration;
+use Symfony\Component\PropertyAccess;
 
 class SymfonyCreateProjectDeciderTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +13,7 @@ class SymfonyCreateProjectDeciderTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = ['project' => ['edition' => 'symfony', 'generate' => true]];
 
-        $accessor = $this->getMockBuilder('Symfony\Component\PropertyAccess\PropertyAccessor')
+        $accessor = $this->getMockBuilder(PropertyAccess\PropertyAccessor::class)
             ->disableOriginalConstructor()
             ->setMethods(['getValue'])
             ->getMock();
@@ -36,7 +38,7 @@ class SymfonyCreateProjectDeciderTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = ['dum' => 'my'];
 
-        $accessor = $this->getMockBuilder('Symfony\Component\PropertyAccess\PropertyAccessor')
+        $accessor = $this->getMockBuilder(PropertyAccess\PropertyAccessor::class)
             ->disableOriginalConstructor()
             ->setMethods(['getValue'])
             ->getMock();
@@ -56,7 +58,7 @@ class SymfonyCreateProjectDeciderTest extends \PHPUnit_Framework_TestCase
     {
         $configuration = ['project' => ['edition' => 'symfony', 'generate' => false]];
 
-        $accessor = $this->getMockBuilder('Symfony\Component\PropertyAccess\PropertyAccessor')
+        $accessor = $this->getMockBuilder(PropertyAccess\PropertyAccessor::class)
             ->disableOriginalConstructor()
             ->setMethods(['getValue'])
             ->getMock();
@@ -79,7 +81,7 @@ class SymfonyCreateProjectDeciderTest extends \PHPUnit_Framework_TestCase
 
     private function buildPropertyAccessProvider($accessor)
     {
-        $provider = $this->getMockBuilder('Puphpet\Domain\Configuration\PropertyAccessProvider')
+        $provider = $this->getMockBuilder(Configuration\PropertyAccessProvider::class)
             ->disableOriginalConstructor()
             ->setMethods(['provide'])
             ->getMock();

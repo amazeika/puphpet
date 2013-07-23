@@ -3,6 +3,10 @@
 namespace Puphpet\Tests\Domain\File;
 
 use Puphpet\Domain\File\Generator;
+use Puphpet\Domain\Serializer;
+use Puphpet\Domain\Configurator\File;
+use Puphpet\Domain\Compiler;
+use Puphpet\Domain;
 
 class GeneratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,7 +43,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
         $manifestCompiler = $this->buildCompiler($manifestConfiguration, $manifest);
         $readmeCompiler = $this->buildCompiler($readmeConfiguration, $readme);
 
-        $serializer = $this->getMockBuilder('Puphpet\Domain\Serializer\Serializer')
+        $serializer = $this->getMockBuilder(Serializer\Serializer::class)
             ->disableOriginalConstructor()
             ->setMethods(['serialize'])
             ->getMock();
@@ -49,7 +53,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
             ->with($userConfiguration)
             ->will($this->returnValue($serializedUserConfiguration));
 
-        $domainFile = $this->getMockBuilder('Puphpet\Domain\File')
+        $domainFile = $this->getMockBuilder(Domain\File::class)
             ->disableOriginalConstructor()
             ->setMethods(['setName', 'createArchive'])
             ->getMock();
@@ -70,9 +74,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
                 ]
             );
 
-        $configurator = $this->getMockBuilder(
-            'Puphpet\Domain\Configurator\File\ConfiguratorHandler'
-        )
+        $configurator = $this->getMockBuilder(File\ConfiguratorHandler::class)
             ->disableOriginalConstructor()
             ->setMethods(array())
             ->getMock();
@@ -92,7 +94,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
             $userConfiguration
         );
 
-        $this->assertInstanceOf('Puphpet\Domain\File', $file);
+        $this->assertInstanceOf(Domain\File::class, $file);
     }
 
     /**
@@ -103,7 +105,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
      */
     private function buildCompiler(array $expectedConfiguration, $will)
     {
-        $mock = $this->getMockBuilder('Puphpet\Domain\Compiler\Compiler')
+        $mock = $this->getMockBuilder(Compiler\Compiler::class)
             ->disableOriginalConstructor()
             ->setMethods(['compile'])
             ->getMock();

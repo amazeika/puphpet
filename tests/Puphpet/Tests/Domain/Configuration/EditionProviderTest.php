@@ -2,7 +2,7 @@
 
 namespace Puphpet\Tests\Domain\Configuration;
 
-use Puphpet\Domain\Configuration\EditionProvider;
+use Puphpet\Domain\Configuration;
 
 class EditionProviderTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class EditionProviderTest extends \PHPUnit_Framework_TestCase
         ];
         $defaultEditionName = 'default';
 
-        $edition = $this->getMockBuilder('Puphpet\Domain\Configuration\Edition')
+        $edition = $this->getMockBuilder(Configuration\Edition::class)
             ->disableOriginalConstructor()
             ->setMethods(['setName', 'setConfiguration'])
             ->getMock();
@@ -26,7 +26,7 @@ class EditionProviderTest extends \PHPUnit_Framework_TestCase
             ->with(['hello' => 'world']);
 
 
-        $provider = new EditionProvider($edition, $availableEditions, $defaultEditionName);
+        $provider = new Configuration\EditionProvider($edition, $availableEditions, $defaultEditionName);
         $provider->provide('unknown');
     }
 
@@ -38,7 +38,7 @@ class EditionProviderTest extends \PHPUnit_Framework_TestCase
         ];
         $defaultEditionName = 'default';
 
-        $edition = $this->getMockBuilder('Puphpet\Domain\Configuration\Edition')
+        $edition = $this->getMockBuilder(Configuration\Edition::class)
             ->disableOriginalConstructor()
             ->setMethods(['setName', 'setConfiguration'])
             ->getMock();
@@ -49,7 +49,7 @@ class EditionProviderTest extends \PHPUnit_Framework_TestCase
             ->method('setConfiguration')
             ->with(['some' => 'configuration']);
 
-        $provider = new EditionProvider($edition, $availableEditions, $defaultEditionName);
+        $provider = new Configuration\EditionProvider($edition, $availableEditions, $defaultEditionName);
         $provider->provide('bar');
     }
 }

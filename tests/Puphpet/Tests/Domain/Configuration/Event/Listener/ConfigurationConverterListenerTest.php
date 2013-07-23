@@ -3,12 +3,13 @@
 namespace Puphpet\Tests\Domain\Configuration;
 
 use Puphpet\Domain\Configuration\Event\Listener\ConfigurationConverterListener;
+use Puphpet\Domain\Configuration\Event;
 
 class ConfigurationConverterListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testOnFilterWillDoNothingWhenAnotherEditionIsGiven()
     {
-        $event = $this->getMockBuilder('Puphpet\Domain\Configuration\Event\ConfigurationEvent')
+        $event = $this->getMockBuilder(Event\ConfigurationEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(['getEditionName', 'replace'])
             ->getMock();
@@ -31,7 +32,7 @@ class ConfigurationConverterListenerTest extends \PHPUnit_Framework_TestCase
     {
         $editionName = 'symfony';
 
-        $event = $this->getMockBuilder('Puphpet\Domain\Configuration\Event\ConfigurationEvent')
+        $event = $this->getMockBuilder(Event\ConfigurationEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(['getEditionName', 'replace'])
             ->getMock();
@@ -56,7 +57,7 @@ class ConfigurationConverterListenerTest extends \PHPUnit_Framework_TestCase
     {
         $editionName = 'something';
 
-        $event = $this->getMockBuilder('Puphpet\Domain\Configuration\Event\ConfigurationEvent')
+        $event = $this->getMockBuilder(Event\ConfigurationEvent::class)
             ->disableOriginalConstructor()
             ->setMethods(['getEditionName', 'replace'])
             ->getMock();

@@ -3,6 +3,8 @@
 namespace Puphpet\Tests\Domain;
 
 use Puphpet\Plugins\Symfony\Configuration\SymfonyConfigurationBuilder;
+use Puphpet\Domain\Configuration;
+use Puphpet\Domain;
 
 class SymfonyConfigurationBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +13,7 @@ class SymfonyConfigurationBuilderTest extends \PHPUnit_Framework_TestCase
         $bashAliasFilePath = '/absolute/path';
         $bashAliasFileContent = 'content';
 
-        $filesystem = $this->getMockBuilder('Puphpet\Domain\Filesystem')
+        $filesystem = $this->getMockBuilder(Domain\Filesystem::class)
             ->disableOriginalConstructor()
             ->setMethods(['getContents'])
             ->getMock();
@@ -21,7 +23,7 @@ class SymfonyConfigurationBuilderTest extends \PHPUnit_Framework_TestCase
             ->with($bashAliasFilePath)
             ->will($this->returnValue($bashAliasFileContent));
 
-        $edition = $this->getMockBuilder('Puphpet\Domain\Configuration\Edition')
+        $edition = $this->getMockBuilder(Configuration\Edition::class)
             ->disableOriginalConstructor()
             ->setMethods(['getName', 'get', 'set'])
             ->getMock();
@@ -52,7 +54,7 @@ class SymfonyConfigurationBuilderTest extends \PHPUnit_Framework_TestCase
         $builder = new SymfonyConfigurationBuilder($bashAliasFilePath, $filesystem);
         $configuration = $builder->build($edition, $customConfiguration);
 
-        $this->assertInstanceOf('\Puphpet\Domain\Configuration\Configuration', $configuration);
+        $this->assertInstanceOf(Configuration\Configuration::class, $configuration);
 
         $config = $configuration->toArray();
         $this->assertInternalType('array', $config);

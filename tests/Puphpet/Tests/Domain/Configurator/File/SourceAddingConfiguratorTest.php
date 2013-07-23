@@ -3,6 +3,7 @@
 namespace Puphpet\Tests\Domain\PuppetModule;
 
 use Puphpet\Domain\Configurator\File\SourceAddingConfigurator;
+use Puphpet\Domain;
 
 class SourceAddingConfiguratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +48,7 @@ class SourceAddingConfiguratorTest extends \PHPUnit_Framework_TestCase
         $targetModuleName = 'foo';
         $vendorModulePath = 'vendor/bar';
 
-        $domainFile = $this->getMockBuilder('Puphpet\Domain\File')
+        $domainFile = $this->getMockBuilder(Domain\File::class)
             ->disableOriginalConstructor()
             ->setMethods(['addModuleSource'])
             ->getMock();
@@ -62,6 +63,6 @@ class SourceAddingConfiguratorTest extends \PHPUnit_Framework_TestCase
 
     private function buildDecider()
     {
-        return $this->getMockForAbstractClass('Puphpet\Domain\Decider\DeciderInterface');
+        return $this->getMockForAbstractClass(Domain\Decider\DeciderInterface::class);
     }
 }

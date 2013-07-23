@@ -3,6 +3,7 @@
 namespace Puphpet\Tests\Domain\Compiler\Manifest;
 
 use Puphpet\Domain\Compiler\Manifest\Formatter;
+use Puphpet\Domain\PuppetModule;
 
 class FormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +46,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
         $projectMock = $this->getProjectMock();
 
         // php
-        $phpMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\PHP')
+        $phpMock = $this->getMockBuilder(PuppetModule\PHP::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -62,7 +63,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
         $mysqlMock = $this->getMysqlMock();
 
         // nginx
-        $nginxMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Nginx')
+        $nginxMock = $this->getMockBuilder(PuppetModule\Nginx::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -74,7 +75,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
             ->method('getFormatted');
 
         // apache
-        $apacheMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Apache')
+        $apacheMock = $this->getMockBuilder(PuppetModule\Apache::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -130,7 +131,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
         $projectMock = $this->getProjectMock();
 
         // php
-        $phpMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\PHP')
+        $phpMock = $this->getMockBuilder(PuppetModule\PHP::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted', 'addPhpModule'])
             ->getMock();
@@ -147,7 +148,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
         $mysqlMock = $this->getMysqlMock();
 
         // nginx
-        $nginxMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Nginx')
+        $nginxMock = $this->getMockBuilder(PuppetModule\Nginx::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -161,7 +162,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($this->nginxFormatted));
 
         // apache
-        $apacheMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Apache')
+        $apacheMock = $this->getMockBuilder(PuppetModule\Apache::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -207,7 +208,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
 
     private function getMysqlMock()
     {
-        $mysqlMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\MySQL')
+        $mysqlMock = $this->getMockBuilder(PuppetModule\MySQL::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -225,7 +226,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
 
     private function getServerMock()
     {
-        $serverMock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Server')
+        $serverMock = $this->getMockBuilder(PuppetModule\Server::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
@@ -243,7 +244,7 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
 
     private function getProjectMock()
     {
-        $mock = $this->getMockBuilder('\Puphpet\Domain\PuppetModule\Passthru')
+        $mock = $this->getMockBuilder(PuppetModule\Passthru::class)
             ->disableOriginalConstructor()
             ->setMethods(['setConfiguration', 'getFormatted'])
             ->getMock();
