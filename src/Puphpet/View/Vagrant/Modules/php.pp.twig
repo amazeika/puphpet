@@ -32,7 +32,7 @@ php::pecl::module { '{{ pecl|raw }}':
 
 {% if php.modules.xdebug.installed == 1 %}
 class { 'xdebug':
-  service => '{{ webserver }}',
+  service => '{{ nginx is defined? 'nginx' : 'httpd' }}',
 }
 {% endif %}
 

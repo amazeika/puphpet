@@ -34,9 +34,3 @@ if $lsbdistcodename == 'wheezy' {
 }
 {% endif %}
 
-{% if nginx is not defined %}
-package { 'apache2-mpm-prefork':
-  ensure => 'installed',
-  notify => Service['apache'],
-}
-{% endif %}

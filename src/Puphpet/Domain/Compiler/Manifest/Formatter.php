@@ -93,7 +93,7 @@ class Formatter implements FormatterInterface
     protected function formatWebserverConfiguration()
     {
         $this->addConfiguration('webserver', $this->webserver);
-        $this->addConfiguration('php_service', $this->webserver == 'nginx' ? 'php5-fpm' : 'apache');
+        $this->addConfiguration('php_service', $this->webserver == 'nginx' ? 'php5-fpm' : 'httpd');
 
         $method = 'format' . ucfirst($this->webserver) . 'Configuration';
         $this->$method();

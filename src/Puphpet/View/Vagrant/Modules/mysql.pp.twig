@@ -29,7 +29,6 @@ nginx::resource::vhost { 'phpmyadmin':
   index_files => ['index.php'],
   www_root    => '/usr/share/phpmyadmin',
   try_files   => ['$uri', '$uri/', '/index.php?$args'],
-  require     => Class['phpmyadmin'],
 }
 
 nginx::resource::location { "phpmyadmin-php":
@@ -53,11 +52,10 @@ nginx::resource::location { "phpmyadmin-php":
 }
 {% else %}
 apache::vhost { 'phpmyadmin':
-  server_name => 'phpmyadmin',
-  docroot     => '/usr/share/phpmyadmin',
-  port        => 80,
-  priority    => '10',
-  require     => Class['phpmyadmin'],
+  servername => 'phpmyadmin',
+  docroot    => '/usr/share/phpmyadmin',
+  port       => 80,
+  priority   => '10',
 }
 {% endif %}{# if nginx/apache #}
 {% endif %}{# if mysql.phpmyadmin #}

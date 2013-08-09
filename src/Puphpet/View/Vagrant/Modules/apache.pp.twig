@@ -1,24 +1,26 @@
-class { 'apache': }
-
-apache::dotconf { 'custom':
-  content => 'EnableSendfile Off',
+class { 'apache':
+  servername => 'localhost',
+  mpm_module => 'prefork'
 }
 
+class { 'apache::mod::php': }
+
 {% for module in apache.modules %}
-apache::module { '{{ module }}': }
+apache::mod { '{{ module }}': }
 {% endfor %}
 
 {% for host in apache.vhosts %}
 apache::vhost { '{{ host.servername }}':
-  server_name   => '{{ host.servername }}',
+  servername    => '{{ host.servername }}',
   serveraliases => [
 {% if host.serveraliases %}{{ format.explode_and_quote(host.serveraliases)|raw }}
   {% endif %}],
   docroot       => '{{ host.docroot }}',
   port          => '{{ host.port }}',
-  env_variables => [
+  setenv        => [
 {% if host.envvars %}{{ format.explode_and_quote(host.envvars)|raw }}
   {% endif %}],
   priority      => '1',
+  override      => ['All'],
 }
 {% endfor %}

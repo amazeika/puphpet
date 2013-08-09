@@ -49,11 +49,11 @@ nginx::resource::vhost { 'xhprof':
 }
 {% else %}
 apache::vhost { 'xhprof':
-  server_name => 'xhprof',
-  docroot     => "${xhprofPath}/xhprof_html",
-  port        => 80,
-  priority    => '1',
-  require     => [
+  servername => 'xhprof',
+  docroot    => "${xhprofPath}/xhprof_html",
+  port       => 80,
+  priority   => '1',
+  require    => [
     Php::Pecl::Module['xhprof'],
     File["${xhprofPath}/xhprof_html"]
   ]
