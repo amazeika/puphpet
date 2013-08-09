@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cd7c197868dd749b4fc300a773ef6445",
+    "hash": "416aa06dbaefb4f23461bbdb0bc9889d",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -332,17 +332,6 @@
             "time": "2013-08-02 23:06:04"
         },
         {
-            "name": "puphpet/puppet-apache",
-            "version": "master",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/puphpet/puppet-apache.git",
-                "reference": "master"
-            },
-            "type": "library",
-            "time": "2013-07-16 08:47:52"
-        },
-        {
             "name": "puphpet/puppet-puphpet",
             "version": "master",
             "source": {
@@ -352,6 +341,17 @@
             },
             "type": "library",
             "time": "2013-07-03 23:33:44"
+        },
+        {
+            "name": "puppetlabs/puppetlabs-apache",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/puppetlabs/puppetlabs-apache.git",
+                "reference": "3f1910e"
+            },
+            "type": "library",
+            "time": "2013-08-08 00:18:14"
         },
         {
             "name": "puppetlabs/puppetlabs-apt",
@@ -504,12 +504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "41c9826457c65fa3cf746f214985b7ca9cba42f8"
+                "reference": "v2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/41c9826457c65fa3cf746f214985b7ca9cba42f8",
-                "reference": "41c9826457c65fa3cf746f214985b7ca9cba42f8",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.3.3",
+                "reference": "v2.3.3",
                 "shasum": ""
             },
             "require": {
@@ -558,12 +558,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "d756d7c9e1d005f9afa36a9ab64b1c98b060e985"
+                "reference": "78a80bd3bba45007ea3e1fa91ef040f9680cdb10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/d756d7c9e1d005f9afa36a9ab64b1c98b060e985",
-                "reference": "d756d7c9e1d005f9afa36a9ab64b1c98b060e985",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/78a80bd3bba45007ea3e1fa91ef040f9680cdb10",
+                "reference": "78a80bd3bba45007ea3e1fa91ef040f9680cdb10",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-28 18:26:16"
+            "time": "2013-08-08 12:01:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -608,12 +608,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "835f8b68e613de47697112b1b7b7cd50ac777042"
+                "reference": "d83f340323c0148f536894748a122f22c2d24972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/835f8b68e613de47697112b1b7b7cd50ac777042",
-                "reference": "835f8b68e613de47697112b1b7b7cd50ac777042",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/d83f340323c0148f536894748a122f22c2d24972",
+                "reference": "d83f340323c0148f536894748a122f22c2d24972",
                 "shasum": ""
             },
             "require": {
@@ -669,7 +669,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-02 13:42:49"
+            "time": "2013-08-07 17:08:15"
         },
         {
             "name": "symfony/property-access",
@@ -678,12 +678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/PropertyAccess.git",
-                "reference": "4ab54faca4a954dba7644c0c38b3b6dfdb9b3d5f"
+                "reference": "v2.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/4ab54faca4a954dba7644c0c38b3b6dfdb9b3d5f",
-                "reference": "4ab54faca4a954dba7644c0c38b3b6dfdb9b3d5f",
+                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/v2.2.5",
+                "reference": "v2.2.5",
                 "shasum": ""
             },
             "require": {
@@ -736,12 +736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "25eb4f846382877a3547d70dae9ea35439d81305"
+                "reference": "v2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/25eb4f846382877a3547d70dae9ea35439d81305",
-                "reference": "25eb4f846382877a3547d70dae9ea35439d81305",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/v2.3.3",
+                "reference": "v2.3.3",
                 "shasum": ""
             },
             "require": {
@@ -794,12 +794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "1625cb4736ea0555806dfa8742eeaace92c77af7"
+                "reference": "6ddcb37ae4b7275c14baf365c7513b9ffdd6e31c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/1625cb4736ea0555806dfa8742eeaace92c77af7",
-                "reference": "1625cb4736ea0555806dfa8742eeaace92c77af7",
+                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/6ddcb37ae4b7275c14baf365c7513b9ffdd6e31c",
+                "reference": "6ddcb37ae4b7275c14baf365c7513b9ffdd6e31c",
                 "shasum": ""
             },
             "require": {
@@ -851,7 +851,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "http://symfony.com",
-            "time": "2013-08-01 08:41:32"
+            "time": "2013-08-08 11:31:08"
         },
         {
             "name": "symfony/yaml",
@@ -860,12 +860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "v2.2.4"
+                "reference": "v2.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.2.4",
-                "reference": "v2.2.4",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.2.5",
+                "reference": "v2.2.5",
                 "shasum": ""
             },
             "require": {
@@ -906,12 +906,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "3bcf32208ac0e55f3cf66a628e1dfbd2afc03dfb"
+                "reference": "fcf007e9a2e6c65594360ae7fa3c410ae8d56a11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/3bcf32208ac0e55f3cf66a628e1dfbd2afc03dfb",
-                "reference": "3bcf32208ac0e55f3cf66a628e1dfbd2afc03dfb",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/fcf007e9a2e6c65594360ae7fa3c410ae8d56a11",
+                "reference": "fcf007e9a2e6c65594360ae7fa3c410ae8d56a11",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-08-05 16:50:34"
+            "time": "2013-08-07 12:53:34"
         }
     ],
     "packages-dev": [
@@ -1486,12 +1486,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "v2.2.4"
+                "reference": "v2.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/v2.2.4",
-                "reference": "v2.2.4",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/v2.2.5",
+                "reference": "v2.2.5",
                 "shasum": ""
             },
             "require": {
@@ -1541,12 +1541,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "v2.2.4"
+                "reference": "v2.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.4",
-                "reference": "v2.2.4",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.5",
+                "reference": "v2.2.5",
                 "shasum": ""
             },
             "require": {
@@ -1807,7 +1807,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "puphpet/puppet-apache": 20,
         "puphpet/puphpet-composer": 20,
         "puphpet/puppet-puphpet": 20,
         "puphpet/puphpet-xdebug": 20,
@@ -1816,6 +1815,7 @@
         "frastel/puppet-phpmyadmin": 20,
         "frastel/puppet-symfony": 20,
         "jfryman/puppet-nginx": 20,
+        "puppetlabs/puppetlabs-apache": 20,
         "puppetlabs/puppetlabs-mysql": 20,
         "ripienaar/puppet-concat": 20,
         "phpunit/phpunit": 20,

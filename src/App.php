@@ -67,7 +67,8 @@ $app['domain.listener.optional_source_configurator'] = function() {
     $configuratorApache = new \Puphpet\Domain\Configurator\File\SourceAddingConfigurator(
         new \Puphpet\Domain\Decider\WebserverDecider('apache'),
         [
-            'apache' => VENDOR_PATH . '/puphpet/puppet-apache',
+            'concat' => VENDOR_PATH . '/ripienaar/puppet-concat',
+            'apache' => VENDOR_PATH . '/puppetlabs/puppetlabs-apache',
         ]
     );
     $configuratorNginx = new \Puphpet\Domain\Configurator\File\SourceAddingConfigurator(

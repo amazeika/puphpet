@@ -24,7 +24,6 @@
         "igorw/config-service-provider": "1.2.*",
         "nicl/silex-markdown":           "1.0.*",
 
-        "puphpet/puppet-apache":            "dev-master",
         "puphpet/puphpet-composer":         "dev-master",
         "puphpet/puppet-puphpet":           "dev-master",
         "puphpet/puphpet-xdebug":           "dev-master",
@@ -34,8 +33,9 @@
         "frastel/puppet-phpmyadmin":        "dev-master#b66963c",
         "frastel/puppet-symfony":           "dev-master#6b83915",
         "jfryman/puppet-nginx":             "dev-master#4419300",
-        "puppetlabs/puppetlabs-mysql":      "dev-master#3205b83ac8",
+        "puppetlabs/puppetlabs-apache":     "dev-master#3f1910e",
         "puppetlabs/puppetlabs-apt":        "1.1.0",
+        "puppetlabs/puppetlabs-mysql":      "dev-master#3205b83ac8",
         "puppetlabs/puppetlabs-postgresql": "2.2.1",
         "puppetlabs/puppetlabs-stdlib":     "2.6.0",
         "puppetlabs/puppetlabs-vcsrepo":    "0.1.2",
@@ -105,12 +105,12 @@
         {
             "type": "package",
             "package": {
-                "name": "puphpet/puppet-apache",
+                "name": "puppetlabs/puppetlabs-apache",
                 "version": "master",
                 "source": {
-                    "url": "git://github.com/puphpet/puppet-apache.git",
+                    "url": "git://github.com/puppetlabs/puppetlabs-apache.git",
                     "type": "git",
-                    "reference": "master"
+                    "reference": "3f1910e"
                 }
             }
         },
